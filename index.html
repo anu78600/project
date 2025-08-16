@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Anupam Mishra — Prompt Engineer & HR Trainee</title>
+    <meta name="description" content="Portfolio of Anupam Mishra, a Prompt Engineer and HR Trainee merging AI and human-centered solutions.">
+    <meta name="keywords" content="Anupam Mishra, Prompt Engineer, HR Trainee, AI, HRIS, Portfolio">
+    <meta name="author" content="Anupam Mishra">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="Anupam Mishra — Prompt Engineer & HR Trainee">
+    <meta property="og:description" content="Portfolio of Anupam Mishra, a Prompt Engineer and HR Trainee merging AI and human-centered solutions.">
+    <meta property="og:image" content="https://your-domain.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/">
+    <meta property="twitter:title" content="Anupam Mishra — Prompt Engineer & HR Trainee">
+    <meta property="twitter:description" content="Portfolio of Anupam Mishra, a Prompt Engineer and HR Trainee merging AI and human-centered solutions.">
+    <meta property="twitter:image" content="https://your-domain.com/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Anupam Mishra",
+      "url": "https://your-domain.com",
+      "sameAs": [
+        "https://linkedin.com/in/your-handle",
+        "https://github.com/your-handle"
+      ],
+      "jobTitle": "Prompt Engineer & HR Trainee",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "IFFCO"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Symbiosis Centre for Management and Human Resource Development (SCMHRD)"
+      },
+      "knowsAbout": ["Prompt Engineering", "HRIS", "Employee Onboarding", "Stock Market Analysis", "AI"]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Library (Feather Icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Styles are in the head -->
+    <style>
+        :root {
+            --ease-1: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-2: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            --ease-3: cubic-bezier(0.215, 0.61, 0.355, 1);
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0f;
+            --surface: rgba(22, 22, 32, 0.5);
+            --surface-2: rgba(33, 33, 50, 0.6);
+            --text: #e0e0ff;
+            --muted: #a0a0c0;
+            --accent: #00a2ff;
+            --accent-2: #8a2be2;
+            --ok: #00ffaa;
+            --warn: #ffdd00;
+            --danger: #ff4444;
+            --gradient-name: linear-gradient(90deg, var(--accent), var(--accent-2));
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg: #f0f4ff;
+            --surface: rgba(255, 255, 255, 0.7);
+            --surface-2: rgba(230, 235, 255, 0.8);
+            --text: #1a202c;
+            --muted: #5a647e;
+            --accent: #4c5bd5;
+            --accent-2: #00a2ff;
+            --ok: #00c78c;
+            --warn: #ffc400;
+            --danger: #e53e3e;
+            --gradient-name: linear-gradient(90deg, var(--accent), var(--accent-2));
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.4s var(--ease-3), color 0.4s var(--ease-3);
+            overflow-x: hidden;
+        }
+
+        #webgl-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Basic Components */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s var(--ease-1);
+        }
+        a:hover {
+            color: var(--accent-2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.3s var(--ease-3), box-shadow 0.3s var(--ease-3);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--gradient-name);
+            color: white;
+        }
+        .btn-secondary {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--accent);
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card {
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            transition: transform 0.3s var(--ease-3), box-shadow 0.3s var(--ease-3);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 var(--shadow-color);
+        }
+
+        /* Layout */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: var(--gradient-name);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .navbar-brand { display: flex; align-items: center; }
+        .logo {
+            width: 40px; height: 40px;
+            background: var(--gradient-name);
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        .brand-text .name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+        .brand-links {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+        .brand-links a { color: var(--muted); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-weight: 500; }
+        #theme-toggle {
+            background: none; border: none; color: var(--text); cursor: pointer;
+        }
+        #theme-toggle .feather-sun { display: none; }
+        [data-theme="light"] #theme-toggle .feather-sun { display: block; }
+        [data-theme="light"] #theme-toggle .feather-moon { display: none; }
+
+        /* Hero */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        .hero-name {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            background: var(--gradient-name);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .hero-badges { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .badge {
+            background: var(--surface-2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .hero-cta { display: flex; justify-content: center; gap: 1rem; }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .skill-list { list-style: none; }
+        .skill-list li {
+            background: var(--surface-2);
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-2);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--surface-2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            z-index: -1;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg);
+            border: 4px solid var(--accent);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .timeline-content h3 { color: var(--accent); }
+        .timeline-content .date { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+        .timeline-content ul { padding-left: 20px; margin-top: 1rem; }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card h3 { font-size: 1.75rem; color: var(--accent); }
+        .project-card .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .project-card .tech-tags .tag {
+            background: var(--accent-2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        .project-card .btn { margin-top: auto; align-self: flex-start; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--surface);
+            color: var(--muted);
+        }
+        .keyboard-hints kbd {
+            background: var(--surface-2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--muted);
+        }
+
+        /* About Card Flip */
+        .about-container { perspective: 1000px; max-width: 600px; margin: 0 auto; }
+        .about-card {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            transition: transform 0.8s var(--ease-3);
+            transform-style: preserve-3d;
+        }
+        .about-container:hover .about-card {
+            transform: rotateY(180deg);
+        }
+        .about-card-front, .about-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .about-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Quote Carousel */
+        .quote-carousel-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        .quote-carousel {
+            display: flex;
+            transition: transform 0.5s var(--ease-in-out-quad);
+        }
+        .quote-slide {
+            min-width: 100%;
+            padding: 3rem;
+            text-align: center;
+            background: var(--surface);
+        }
+        .quote-slide blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text);
+        }
+        .quote-slide footer {
+            margin-top: 1rem;
+            color: var(--muted);
+        }
+        .quote-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .quote-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--muted);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .quote-dot.active {
+            background: var(--accent);
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links { display: none; } /* Simple hide for mobile, could be a menu */
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
+            .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            .timeline-item::after { left: 10px; }
+            .timeline-item:nth-child(even)::after { left: 10px; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <noscript>
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0a0a0f; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 9999;">
+            <h1>JavaScript Required</h1>
+            <p>This portfolio is an interactive experience that requires JavaScript to be enabled.</p>
+            <p>Please enable JavaScript in your browser settings to view this site as intended.</p>
+        </div>
+    </noscript>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="webgl-bg"></div>
+
+    <header class="navbar">
+        <div class="navbar-brand">
+            <div class="logo">AM</div>
+            <div class="brand-text">
+                <span class="name">Anupam Mishra</span>
+                <div class="brand-links">
+                    <!-- Links will be injected by JS -->
+                </div>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i data-feather="sun"></i>
+                <i data-feather="moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-name">Anupam Mishra</h1>
+                <p class="hero-tagline">Prompt Engineer & HR Trainee — Merging AI and Human-Centered Solutions.</p>
+                <div class="hero-badges">
+                    <span class="badge">Dark</span>
+                    <span class="badge">Modern</span>
+                    <span class="badge">Responsive</span>
+                    <span class="badge">No personal contacts displayed</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#links" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-card">
+                    <div class="about-card-inner">
+                        <div class="about-card-front card">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="about-card-back card">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <!-- Skill cards will be populated by JS -->
+            </div>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <!-- Timeline items will be populated by JS -->
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- Project card will be populated by JS -->
+            </div>
+        </section>
+
+        <section id="certifications" class="content-section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <!-- Certification cards will be populated by JS -->
+            </div>
+        </section>
+
+        <section id="learnings" class="content-section">
+            <h2 class="section-title">Learnings & Achievements</h2>
+            <ul class="learnings-list">
+                <!-- Learning items will be populated by JS -->
+            </ul>
+        </section>
+
+        <section id="quotes" class="content-section">
+            <h2 class="section-title">Inspirational Quotes</h2>
+            <div class="quote-carousel-container">
+                <div class="quote-carousel">
+                    <!-- Quotes will be populated by JS -->
+                </div>
+                <div class="quote-dots"></div>
+            </div>
+        </section>
+
+        <section id="links" class="content-section">
+            <h2 class="section-title">Links & Contact</h2>
+            <div class="links-grid">
+                <!-- Link cards will be populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="footer-year"></span> Anupam Mishra. All Rights Reserved.</p>
+        <p class="keyboard-hints">Keyboard shortcuts: <kbd>G</kbd> → Projects, <kbd>T</kbd> → Top</p>
+    </footer>
+
+    <!-- Vendor Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Main Application Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const config = {
+                name: "Anupam Mishra",
+                tagline: "Prompt Engineer & HR Trainee — Merging AI and Human-Centered Solutions.",
+                bio: "MBA (HR & IB, Expected 2026) and BCA (2019–2022). I design prompts and small automations that make teams faster and insights clearer. Curious, reliable, and always shipping small improvements.",
+                skills: {
+                    hard: ["Prompt Engineering", "HRIS Data Management", "Employee Onboarding", "Stock Market Analysis", "Screener Development", "TradingView Pine Script", "AI Output Evaluation"],
+                    soft: ["Communication", "Problem-Solving", "Time Management", "Teamwork", "Adaptability", "Analytical Thinking", "Attention to Detail"],
+                    tools: ["MS Excel", "Google Workspace", "HRIS Platforms", "ChatGPT", "Perplexity AI", "Claude AI", "TradingView", "GitHub"],
+                    focus: ["Onboarding & Induction", "Employee Engagement", "Data Accuracy Audits", "Process Documentation", "AI Output Evaluation"],
+                },
+                experience: [
+                    {
+                        role: "HR Trainee",
+                        company: "IFFCO",
+                        period: "Jul 2025 – Present, India",
+                        tasks: [
+                            "Supported onboarding & HRIS entry for <strong>20+ new hires</strong>; ensured <strong>100% compliance</strong>.",
+                            "Assisted <strong>3+ engagement activities/month</strong>, improving participation by ~<strong>15%</strong>.",
+                            "Coordinated induction & trainings; reduced onboarding delays by ~<strong>10%</strong>.",
+                            "Handled <strong>5–8 HR queries/day</strong>; shipped monthly HR reports with <strong>zero data errors</strong>."
+                        ]
+                    },
+                    {
+                        role: "Prompt Engineer",
+                        company: "Freelance",
+                        period: "Aug 2025 – Present, Remote",
+                        tasks: [
+                            "Iterated <strong>50+ prompt variants</strong>, improving output quality by <strong>~15–20%</strong>.",
+                            "Benchmarked across <strong>3 major AI tools</strong>; built a <strong>20+ page</strong> prompt playbook.",
+                            "Applied frameworks to HR, support, e-learning; documented reusable patterns."
+                        ]
+                    }
+                ],
+                project: {
+                    name: "Custom AI-Powered Stock & Crypto Screener",
+                    date: "Demo, 2025",
+                    problem: "Free tools lack custom filters; users juggle multiple screeners/subscriptions.",
+                    features: ["Stock search", "analyst-style fundamentals", "buy/sell signals", "index heat map", "news feed", "top-4 crypto tracking"],
+                    tech: ["TradingView", "Pine Script", "ChatGPT", "Perplexity", "Claude AI"],
+                    output: "Demo + GitHub code; helps traders analyze efficiently <strong>without subscription costs</strong>.",
+                    link: "https://github.com/your-handle"
+                },
+                certifications: [
+                    { name: "Generative AI", issuer: "Udemy", year: "2024" },
+                    { name: "Introduction to Equity Markets", issuer: "IIM Bangalore", year: "2024" },
+                ],
+                learnings: [
+                    "First Prize — Discipline Award (2022)",
+                    "Strong documentation discipline; clean iteration logs & lightweight SOPs",
+                    "Small daily learning > occasional big pushes"
+                ],
+                quotes: [
+                    { text: "Your future is created by what you do today, not tomorrow.", author: "Anonymous" },
+                    { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
+                    { text: "Dream big. Start small. Act now.", author: "Anonymous" }
+                ],
+                links: {
+                    linkedin: "https://linkedin.com/in/your-handle",
+                    github: "https://github.com/your-handle",
+                    email: "a.mishra.portfolio@email.com",
+                    phone: "+91-987-654-3210"
+                }
+            };
+
+            // --- DYNAMIC CONTENT INJECTION ---
+            const injectContent = () => {
+                // Footer Year
+                document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+                // Navbar Links
+                const brandLinksContainer = document.querySelector('.brand-links');
+                brandLinksContainer.innerHTML = `
+                    <a href="${config.links.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    &bull;
+                    <a href="${config.links.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                `;
+
+                // About Card
+                const aboutFront = document.querySelector('.about-card-front');
+                aboutFront.innerHTML = `<h3>Bio</h3><p>${config.bio}</p><p class="muted-text">(Hover to see more)</p>`;
+                const aboutBack = document.querySelector('.about-card-back');
+                aboutBack.innerHTML = `<h3>Education & Certs</h3><p>MBA (HR & IB), Expected 2026</p><p>BCA, 2019-2022</p><div>${config.certifications.map(c => `<span class="badge">${c.name}</span>`).join(' ')}</div>`;
+
+                // Skills
+                const skillsGrid = document.querySelector('.skills-grid');
+                skillsGrid.innerHTML = `
+                    <div class="card skill-card" data-aos="fade-up"><h3>Hard Skills</h3><ul class="skill-list">${config.skills.hard.map(s => `<li>${s}</li>`).join('')}</ul></div>
+                    <div class="card skill-card" data-aos="fade-up" data-aos-delay="100"><h3>Soft Skills</h3><ul class="skill-list">${config.skills.soft.map(s => `<li>${s}</li>`).join('')}</ul></div>
+                    <div class="card skill-card" data-aos="fade-up" data-aos-delay="200"><h3>Tools/Tech</h3><ul class="skill-list">${config.skills.tools.map(s => `<li>${s}</li>`).join('')}</ul></div>
+                    <div class="card skill-card" data-aos="fade-up" data-aos-delay="300"><h3>Focus Areas</h3><ul class="skill-list">${config.skills.focus.map(s => `<li>${s}</li>`).join('')}</ul></div>
+                `;
+
+                // Experience
+                const timeline = document.querySelector('.timeline');
+                timeline.innerHTML = config.experience.map(exp => `
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-content">
+                            <h3>${exp.role}</h3>
+                            <p class="company">${exp.company}</p>
+                            <span class="date">${exp.period}</span>
+                            <ul>${exp.tasks.map(t => `<li>${t}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Project
+                const projectsGrid = document.querySelector('.projects-grid');
+                const p = config.project;
+                projectsGrid.innerHTML = `
+                    <div class="card project-card" data-aos="fade-up">
+                        <h3>${p.name} <span class="date" style="font-size: 1rem; color: var(--muted);">${p.date}</span></h3>
+                        <p><strong>Problem:</strong> ${p.problem}</p>
+                        <p><strong>Features:</strong></p>
+                        <ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+                        <div class="tech-tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                        <p><strong>Output:</strong> ${p.output}</p>
+                        <a href="${p.link}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Code on GitHub</a>
+                    </div>
+                `;
+
+                // Certifications
+                const certificationsGrid = document.querySelector('.certifications-grid');
+                certificationsGrid.innerHTML = config.certifications.map((cert, i) => `
+                    <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
+                        <h4>${cert.name}</h4>
+                        <p>${cert.issuer} (${cert.year})</p>
+                    </div>
+                `).join('');
+
+                 // Learnings
+                const learningsList = document.querySelector('.learnings-list');
+                learningsList.innerHTML = config.learnings.map(item => `<li><i data-feather="check-circle"></i> ${item}</li>`).join('');
+
+                // Quotes
+                const quoteCarousel = document.querySelector('.quote-carousel');
+                quoteCarousel.innerHTML = config.quotes.map(q => `
+                    <div class="quote-slide">
+                        <blockquote>“${q.text}”</blockquote>
+                        <footer>— ${q.author}</footer>
+                    </div>
+                `).join('');
+
+                // Links
+                const linksGrid = document.querySelector('.links-grid');
+                linksGrid.innerHTML = `
+                    <div class="card" data-aos="fade-up"><a href="${config.links.linkedin}" target="_blank" rel="noopener noreferrer"><h3>LinkedIn</h3><p>Professional Profile</p></a></div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="100"><a href="${config.links.github}" target="_blank" rel="noopener noreferrer"><h3>GitHub</h3><p>Code & Projects</p></a></div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Email</h3><p>${config.links.email.replace(/./g, '*')}</p></div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>Phone</h3><p>${config.links.phone.replace(/./g, '*')}</p></div>
+                `;
+            };
+
+            // --- THEME ---
+            const setupTheme = () => {
+                const themeToggle = document.getElementById('theme-toggle');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+                document.body.setAttribute('data-theme', currentTheme);
+
+                themeToggle.addEventListener('click', () => {
+                    const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    document.body.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+
+                    // Animate theme change
+                    const lightColors = { bg: "#f0f4ff", surface: "rgba(255, 255, 255, 0.7)", text: "#1a202c", muted: "#5a647e", accent: "#4c5bd5" };
+                    const darkColors = { bg: "#0a0a0f", surface: "rgba(22, 22, 32, 0.5)", text: "#e0e0ff", muted: "#a0a0c0", accent: "#00a2ff" };
+                    const targetColors = newTheme === 'dark' ? darkColors : lightColors;
+
+                    gsap.to('body', {
+                        backgroundColor: targetColors.bg,
+                        color: targetColors.text,
+                        duration: 0.5,
+                        ease: 'power1.inOut'
+                    });
+                });
+            };
+
+            // --- QUOTE CAROUSEL ---
+            const setupQuoteCarousel = () => {
+                const carousel = document.querySelector('.quote-carousel');
+                const dotsContainer = document.querySelector('.quote-dots');
+                if (!carousel) return;
+                const slides = Array.from(carousel.children);
+                let currentIndex = 0;
+                let interval;
+
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('quote-dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                        resetInterval();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+                const dots = Array.from(dotsContainer.children);
+
+                const goToSlide = (index) => {
+                    currentIndex = index;
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+                };
+
+                const nextSlide = () => goToSlide((currentIndex + 1) % slides.length);
+                const resetInterval = () => {
+                    clearInterval(interval);
+                    interval = setInterval(nextSlide, 5000);
+                };
+
+                carousel.parentElement.addEventListener('mouseenter', () => clearInterval(interval));
+                carousel.parentElement.addEventListener('mouseleave', resetInterval);
+                resetInterval();
+            };
+
+            // --- ANIMATIONS ---
+            const setupAnimations = () => {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) {
+                    AOS.init({ disable: true });
+                    return;
+                }
+
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 50,
+                });
+
+                gsap.from('.hero-name', { duration: 1, y: 50, opacity: 0, ease: 'power3.out', delay: 0.2 });
+                gsap.from('.hero-tagline', { duration: 1, y: 50, opacity: 0, ease: 'power3.out', delay: 0.4 });
+                gsap.from('.hero-badges .badge', { duration: 0.8, y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', delay: 0.6 });
+                gsap.from('.hero-cta .btn', { duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', delay: 0.8 });
+
+                // Timeline animation
+                gsap.utils.toArray('.timeline-item').forEach(item => {
+                    ScrollTrigger.create({
+                        trigger: item,
+                        start: 'top 80%',
+                        onEnter: () => {
+                            gsap.to(item.querySelector('.timeline-content'), { opacity: 1, y: 0, duration: 0.6 });
+                            gsap.to(item.querySelector('::after'), { borderColor: 'var(--accent-2)', scale: 1.2, duration: 0.4 });
+                        },
+                    });
+                });
+
+                // Reset AOS for dynamically added content
+                setTimeout(() => {
+                    AOS.refresh();
+                    feather.replace();
+                }, 200);
+            };
+
+            // --- 3D BACKGROUND ---
+            const setupThreeJS = () => {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) return;
+
+                let scene, camera, renderer;
+                let darkGroup, lightGroup;
+                let darkParticlesMaterial, lightBubbleMaterial;
+
+                const container = document.getElementById('webgl-bg');
+                if (!container) return;
+
+                try {
+                    scene = new THREE.Scene();
+                    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    camera.position.z = 5;
+
+                    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    container.appendChild(renderer.domElement);
+
+                    // --- Dark Mode Scene (Rotating Particle Field) ---
+                    darkGroup = new THREE.Group();
+                    const darkParticleCount = 5000;
+                    const darkPositions = new Float32Array(darkParticleCount * 3);
+                    for (let i = 0; i < darkParticleCount * 3; i++) {
+                        darkPositions[i] = (Math.random() - 0.5) * 10;
+                    }
+                    const darkGeometry = new THREE.BufferGeometry();
+                    darkGeometry.setAttribute('position', new THREE.BufferAttribute(darkPositions, 3));
+                    darkParticlesMaterial = new THREE.PointsMaterial({
+                        size: 0.01,
+                        transparent: true,
+                        depthWrite: false
+                    });
+                    const darkParticles = new THREE.Points(darkGeometry, darkParticlesMaterial);
+                    darkGroup.add(darkParticles);
+                    scene.add(darkGroup);
+
+                    // --- Light Mode Scene (Floating Bubbles) ---
+                    lightGroup = new THREE.Group();
+                    const bubbleCount = 100;
+                    const bubbleGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+                    lightBubbleMaterial = new THREE.MeshBasicMaterial({
+                        transparent: true,
+                        opacity: 0.4,
+                        depthWrite: false
+                    });
+                    for (let i = 0; i < bubbleCount; i++) {
+                        const bubble = new THREE.Mesh(bubbleGeometry, lightBubbleMaterial);
+                        bubble.position.set(
+                            (Math.random() - 0.5) * 10,
+                            (Math.random() - 0.5) * 10,
+                            (Math.random() - 0.5) * 10
+                        );
+                        bubble.userData.velocity = new THREE.Vector3(
+                            (Math.random() - 0.5) * 0.0005,
+                            Math.random() * 0.005 + 0.002,
+                            (Math.random() - 0.5) * 0.0005
+                        );
+                        lightGroup.add(bubble);
+                    }
+                    scene.add(lightGroup);
+
+                    // --- Theme Logic ---
+                    const updateSceneForTheme = () => {
+                        const isDark = document.body.getAttribute('data-theme') === 'dark';
+
+                        darkGroup.visible = isDark;
+                        lightGroup.visible = !isDark;
+
+                        const darkColor = new THREE.Color(0x00a2ff);
+                        const lightColor = new THREE.Color(0x4c5bd5);
+
+                        gsap.to(darkParticlesMaterial.color, {
+                            r: darkColor.r, g: darkColor.g, b: darkColor.b,
+                            duration: 1, ease: 'power2.inOut'
+                        });
+                        gsap.to(lightBubbleMaterial.color, {
+                            r: lightColor.r, g: lightColor.g, b: lightColor.b,
+                            duration: 1, ease: 'power2.inOut'
+                        });
+                    };
+
+                    // Call directly on theme toggle, not inside here
+                    document.getElementById('theme-toggle').addEventListener('click', updateSceneForTheme);
+
+                    // Initial setup
+                    updateSceneForTheme();
+
+
+                    // --- Animation Loop ---
+                    const animate = () => {
+                        requestAnimationFrame(animate);
+
+                        if (darkGroup.visible) {
+                            darkGroup.rotation.x += 0.0001;
+                            darkGroup.rotation.y += 0.0002;
+                        }
+
+                        if (lightGroup.visible) {
+                            lightGroup.children.forEach(bubble => {
+                                bubble.position.add(bubble.userData.velocity);
+                                if (bubble.position.y > 6) { // Reset when off-screen
+                                    bubble.position.y = -6;
+                                    bubble.position.x = (Math.random() - 0.5) * 10;
+                                }
+                            });
+                        }
+
+                        renderer.render(scene, camera);
+                    };
+                    animate();
+
+                    window.addEventListener('resize', () => {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                    });
+
+                } catch (e) {
+                    console.error("WebGL is not supported or failed to initialize.", e);
+                    if (container.firstChild) {
+                        container.removeChild(container.firstChild);
+                    }
+                }
+            };
+
+
+            // --- INITIALIZATIONS ---
+            injectContent();
+            setupTheme();
+            setupQuoteCarousel();
+            setupAnimations();
+            setupThreeJS();
+
+            // --- KEYBOARD SHORTCUTS ---
+            window.addEventListener('keydown', (e) => {
+                if (e.key.toLowerCase() === 'g' && !e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    document.getElementById('projects').scrollIntoView();
+                }
+                if (e.key.toLowerCase() === 't' && !e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+    <!--
+        Credits & Licenses:
+        - GSAP (GreenSock Animation Platform): Standard "No Charge" License. https://greensock.com/standard-license/
+        - Three.js: MIT License. https://github.com/mrdoob/three.js/blob/master/LICENSE
+        - AOS (Animate on Scroll): MIT License. https://github.com/michalsnik/aos/blob/master/LICENSE
+        - Feather Icons: MIT License. https://github.com/feathericons/feather/blob/master/LICENSE
+        - Google Fonts (Inter): Open Font License.
+    -->
+</body>
+</html>
