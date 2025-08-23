@@ -57,6 +57,26 @@
             color: var(--text-light-bg);
             line-height: 1.6;
             overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Mouse Follower */
+        .mouse-glow {
+            position: fixed;
+            z-index: 9999;
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent-2-cool);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s, width 0.3s, height 0.3s;
+            filter: blur(15px);
+        }
+
+        body:hover .mouse-glow {
+            opacity: 0.3;
         }
 
         /* General Layout */
@@ -191,11 +211,28 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            transition: transform 0.2s ease-out; /* For parallax effect */
         }
 
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             margin-bottom: 20px;
+            /* overflow: hidden; */ /* Required for some letter animations if they slide */
+        }
+
+        /* Styles for letter-by-letter animation */
+        .hero h1 .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: letter-reveal 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+        }
+
+        @keyframes letter-reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero p {
@@ -274,6 +311,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            perspective: 1000px; /* Add perspective to the parent for a better 3D effect */
         }
 
         .course-card, .blog-card {
@@ -281,13 +319,14 @@
             border-radius: var(--border-radius-main);
             padding: 30px;
             box-shadow: var(--soft-shadow-1);
-            transition: all var(--transition-speed) var(--transition-ease);
             text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, box-shadow var(--transition-speed) var(--transition-ease);
         }
 
         .course-card:hover, .blog-card:hover {
-            transform: translateY(-10px);
             box-shadow: var(--soft-shadow-2);
+            /* The transform is now handled by JavaScript */
         }
 
         .course-card h3, .blog-card h3 {
@@ -408,13 +447,29 @@
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s var(--transition-ease), transform 0.8s var(--transition-ease);
+            transition: opacity 0.6s var(--transition-ease), transform 0.6s var(--transition-ease);
+            transition-delay: var(--delay, 0s);
         }
 
-        .scroll-reveal.visible {
+        .animated-section.visible .scroll-reveal {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Staggered delays for children */
+        .animated-section.visible h2 { --delay: 0.1s; }
+        .animated-section.visible .courses-grid,
+        .animated-section.visible .blogs-grid { --delay: 0.2s; }
+        .animated-section.visible .about-content { --delay: 0.2s; }
+        .animated-section.visible .contact-form { --delay: 0.2s; }
+        .animated-section.visible .social-links { --delay: 0.3s; }
+
+        .animated-section.visible .course-card:nth-child(1),
+        .animated-section.visible .blog-card:nth-child(1) { --delay: 0.3s; }
+        .animated-section.visible .course-card:nth-child(2),
+        .animated-section.visible .blog-card:nth-child(2) { --delay: 0.4s; }
+        .animated-section.visible .course-card:nth-child(3),
+        .animated-section.visible .blog-card:nth-child(3) { --delay: 0.5s; }
 
         /* Part 3: Responsiveness */
         @media (max-width: 768px) {
@@ -454,6 +509,9 @@
 </head>
 <body>
 
+    <!-- Mouse Follower Glow Effect -->
+    <div class="mouse-glow"></div>
+
     <!-- Part 4: HTML Structure -->
 
     <!-- Navigation Bar -->
@@ -490,7 +548,7 @@
         </section>
 
         <!-- Courses Section -->
-        <section id="courses">
+        <section id="courses" class="animated-section">
             <div class="container">
                 <h2 class="scroll-reveal">Courses</h2>
                 <div class="courses-grid">
@@ -514,7 +572,7 @@
         </section>
 
         <!-- Blogs Section -->
-        <section id="blogs">
+        <section id="blogs" class="animated-section">
             <div class="container">
                 <h2 class="scroll-reveal">From the Blog</h2>
                 <div class="blogs-grid">
@@ -538,7 +596,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about">
+        <section id="about" class="animated-section">
             <div class="container">
                 <h2 class="scroll-reveal">About Me</h2>
                 <div class="about-content scroll-reveal">
@@ -551,7 +609,7 @@
         </section>
 
         <!-- Connect Section -->
-        <section id="connect">
+        <section id="connect" class="animated-section">
             <div class="container">
                 <h2 class="scroll-reveal">Get In Touch</h2>
                 <form class="contact-form scroll-reveal">
@@ -617,24 +675,91 @@
                 }
             });
 
-            // --- Scroll Reveal Animations ---
-            const revealElements = document.querySelectorAll('.scroll-reveal');
+            // --- Hero Section Interactivity ---
+            const setupHeroAnimations = () => {
+                const hero = document.querySelector('.hero');
+                const heroContent = document.querySelector('.hero-content');
+                const headline = heroContent.querySelector('h1');
 
-            const observer = new IntersectionObserver((entries) => {
+                // 1. Letter-by-letter animation
+                const text = headline.textContent;
+                headline.innerHTML = ''; // Clear original text
+                text.split('').forEach((char, index) => {
+                    const letterSpan = document.createElement('span');
+                    letterSpan.className = 'letter';
+                    // For spaces, use a non-breaking space to ensure it has width
+                    letterSpan.innerHTML = char === ' ' ? '&nbsp;' : char;
+                    letterSpan.style.animationDelay = `${index * 0.05}s`;
+                    headline.appendChild(letterSpan);
+                });
+
+                // 2. Mouse-move parallax effect
+                hero.addEventListener('mousemove', (e) => {
+                    const { clientWidth, clientHeight } = hero;
+                    const x = (e.clientX / clientWidth) - 0.5; // Range -0.5 to 0.5
+                    const y = (e.clientY / clientHeight) - 0.5; // Range -0.5 to 0.5
+
+                    const parallaxIntensity = 20; // Pixels to move
+                    const offsetX = -x * parallaxIntensity;
+                    const offsetY = -y * parallaxIntensity;
+
+                    heroContent.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                });
+            };
+
+            // --- Scroll Reveal Animations ---
+            const animatedSections = document.querySelectorAll('.animated-section');
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        // Optional: unobserve after revealing
-                        // observer.unobserve(entry.target);
+                        observer.unobserve(entry.target); // Animate only once
                     }
                 });
             }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.15 // Trigger when 15% of the section is visible
             });
 
-            revealElements.forEach(el => {
-                observer.observe(el);
+            animatedSections.forEach(section => {
+                sectionObserver.observe(section);
             });
+
+            // --- 3D Card Tilt Effect ---
+            const setupCardTilt = () => {
+                const cards = document.querySelectorAll('.course-card, .blog-card');
+
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+
+                        const rotateX = -y / (rect.height / 2) * 10; // Max rotation 10deg
+                        const rotateY = x / (rect.width / 2) * 10;  // Max rotation 10deg
+
+                        card.style.transform = `translateZ(10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                    });
+                });
+            };
+
+            // --- Mouse Follower ---
+            const setupMouseFollower = () => {
+                const glow = document.querySelector('.mouse-glow');
+                window.addEventListener('mousemove', (e) => {
+                    glow.style.left = `${e.clientX}px`;
+                    glow.style.top = `${e.clientY}px`;
+                });
+            };
+
+            // Initialize all setups
+            setupHeroAnimations();
+            setupCardTilt();
+            setupMouseFollower();
         });
     </script>
 
